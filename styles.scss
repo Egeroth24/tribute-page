@@ -1,0 +1,315 @@
+$primaryDark: #212121;
+$primaryBlue: #3E50B4;
+
+* {
+    padding: 0; margin: 0; border: 0;
+    box-sizing: border-box;
+    font-family: "roboto";
+}
+
+body {
+    height: 100%;
+}
+
+.placeholder {
+    background-color: rgba(126, 126, 126, 0.25);
+    border: 1px solid #e3e3e3;
+    border-radius: 4px;
+}
+
+#indexBanner {
+    min-height: 75vh;
+    display: grid;
+    grid-template-columns: 1fr 2fr;
+    grid-template-areas: "portrait description";
+    background-color: $primaryDark;
+    color: white;
+
+    .portrait {
+        grid-area: portrait;
+        align-self: center;
+        justify-self: end;
+        img {
+            max-width: 100%;
+        }
+        
+    }
+    .description {
+        grid-area: description;
+
+        h1 {
+            font-size: 48px;
+            margin-bottom: 4px;
+        }
+        h2 {
+            font-size: 28px;
+            margin-top: 0;
+            margin-bottom: 40px;
+        }
+        p {
+            font-size: 18px;
+            margin: 10px;
+        }
+    }
+
+}
+
+#timelineContainer {
+    background-color: $primaryDark;
+    position: relative;
+
+    .timeline {
+        position: absolute;
+        left: 50%;
+        top: 90px;
+        height: calc(100% - 90px); // 100% of parent container includes the yearBorn (90px high). 
+        width: 8px;
+        background-color: white;
+    }
+
+    #yearBorn {
+        text-align: center;
+        color: white;
+        .year {
+            font-size: 24px;
+        }
+        p {
+            font-size: 18px;
+        }
+        
+    }
+
+    .timelineRow {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        grid-template-rows: auto auto;
+        grid-template-areas:
+        "eventLeft ."
+        ". eventRight";
+        @media only screen and (max-width: 780px) {
+            grid-template-columns: 1fr;
+            grid-template-rows: auto auto;
+            grid-template-areas:
+            "eventLeft"
+            "eventRight";
+        }
+
+    }
+
+    .cardTriangle {
+        position: absolute;
+        top: 0;
+        width: 0;
+        height: 0;
+        border-top: 21px solid transparent;
+        border-bottom: 21px solid transparent;
+
+        &.triangleRight {
+            border-left: 21px solid $primaryBlue;
+            right: -21px;
+            @media only screen and (max-width: 780px) {
+                margin-left: auto;
+                margin-right: auto;
+                left: 8px; // Timeline width.
+                right: 0;
+                top: -31px; // Half of card-title (21px) and cardTriangle heights (10px rounded down) to place base of triangle on top of card-title.
+                transform: rotate(-90deg);
+            }
+        }
+        &.triangleLeft {
+            border-right: 21px solid $primaryBlue;
+            left: -21px;
+            @media only screen and (max-width: 780px) {
+                margin-left: auto;
+                margin-right: auto;
+                left: 8px; // Timeline width.
+                right: 0;
+                top: -31px; // Half of card-title (21px) and cardTriangle heights (10px rounded down) to place base of triangle on top of card-title.
+                transform: rotate(90deg);
+            }
+        }
+    }
+
+    .eventContainer {
+        width: 75%;
+        margin: 25px;
+        margin-top: 45px;
+        position: relative;
+        @media only screen and (max-width: 780px) {
+            margin-top: 150px;
+        }
+
+        &.eventLeft {
+            grid-area: eventLeft;
+            margin-left: auto;
+            margin-right: 60px;
+            @media only screen and (max-width: 780px) {
+                margin-right: auto;
+            }
+        }
+        &.eventRight {
+            grid-area: eventRight;
+            margin-right: auto;
+            margin-left: 68px; // 60 + the 8px of the timeline, to be symmetrical with eventLeft.
+            @media only screen and (max-width: 780px) {
+                margin-left: auto;
+            }
+        }
+
+        .cardYear {
+            position: absolute;
+            width: 75px;
+            height: 75px;
+            text-align: center;
+            border: 4px solid white;
+            border-radius: 50%;
+            background-color: $primaryDark;
+            color: white;
+            font-size: 26px;
+
+            top: -15px; // Half of card-title height, centers year with the cardTriangle.
+
+            &.yearRight {
+                right: -100px; // 42px from triangle width and 68px from eventContainer margin.
+            }
+            &.yearLeft {
+                left: -100px;
+            }
+
+            &.yearRight, &.yearLeft {
+                @media only screen and (max-width: 780px) {
+                    margin-left: auto;
+                    margin-right: auto;
+                    left: 8px; // Timeline width.
+                    right: 0;
+                    top: -100px; // Negative height of cardYear (75px) - cardTriangle (21px) - 4 extra px for spacing.
+                }
+            }
+    
+            p {
+                line-height: 67px; // cardYear height minus 4px border.
+                margin-right: 2px; // Centers the year that always starts with "1" as the font is not monospace.
+            }
+
+        }
+
+        .card {
+            margin: 0;
+        }
+
+        .card-content {
+            padding: 0;
+            .card-title {
+                position: relative;
+                background-color: $primaryBlue;
+                padding: 5px;
+                margin: 0;
+                text-align: center;
+                color: white;
+            }
+            .cardText {
+                padding: 5px;
+                p {
+                    padding: 10px;
+                    font-size: 16px;
+                }
+            }
+            .expandable {
+                max-height: 500px;
+                overflow: hidden;
+                opacity: 0;
+                transition: max-height .5s, opacity, .5s;
+                &.collapsed {
+                    max-height: 0;
+                }
+                ul {
+                    padding-left: 40px;
+                    li {
+                        list-style-type: circle;
+                    }
+                }
+            }
+            
+            .expandStatsButton {
+                margin: 0 auto 10px 10px;
+                background-color: $primaryBlue;
+            }
+            .chartContainer {
+                padding: 10px 0 10px;
+            }
+            
+        }
+
+    }
+
+}
+
+/* REFACTORING TO REMOVE MAGIC NUMBERS
+
+    .cardTriangle {
+        display: inline-block;
+        position: absolute;
+        top: 0;
+        width: 0;
+        height: 0;
+        border-top: 21px solid transparent;
+        border-bottom: 21px solid transparent;
+
+        &.triangleRight {
+            right: -21px;
+            border-left: 21px solid $primaryBlue;
+            @media only screen and (max-width: 780px) {
+                transform: rotate(-90deg);
+                right: calc(50% - 15px);
+                top: -30px;
+            }
+        }
+        &.triangleLeft {
+            left: -21px;
+            border-right: 21px solid $primaryBlue;
+            @media only screen and (max-width: 780px) {
+                transform: rotate(90deg);
+                left: calc(50% - 6px);
+                top: -30px;
+            }
+        }
+    }
+
+    .cardYear {
+        display: inline-block;
+        position: absolute;
+        top: -16px;
+        width: 75px;
+        height: 75px;
+        text-align: center;
+        border-radius: 50%;
+        background-color: $primaryDark;
+        z-index: 1;
+        border: 4px solid white;
+
+        &.yearRight {
+            right: -102px;
+            @media only screen and (max-width: 780px) {
+                right: calc(50% - 42px);
+                top: -100px;
+            }
+        }
+        &.yearLeft {
+            left: -95px;
+            @media only screen and (max-width: 780px) {
+                left: calc(50% - 34px);
+                top: -100px;
+            }
+        }
+
+        p {
+            font-weight: 400;
+            height: 65px;
+            line-height: 65px;
+            vertical-align: middle;
+        }
+
+    }
+
+
+*/

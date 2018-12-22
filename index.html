@@ -1,0 +1,930 @@
+<!DOCTYPE html>
+<html lang='en'>
+<head>
+    <meta charset='UTF-8'>
+    <!-- <meta name='viewport' content='width=device-width, inital-scale=1.0'> -->
+    <meta http-equiv='X-UA-Compatible' content='ie=edge'>
+    <title>Document</title>
+
+    <link href="https://fonts.googleapis.com/css?family=Roboto:300" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+
+    <link rel='stylesheet' type='text/css' media='screen' href='./styles.css' />
+
+</head>
+<body>
+
+    <div id="indexBanner">
+        <div class="portrait">
+            <div class="portraitImage">
+                <img src="https://i.imgur.com/46wtHxa.png" />
+            </div>
+        </div>
+        <div class="description">
+            <h1>William Henry "Bill" Gates III</h1>
+            <h2>Software Engineer, Entrepreneur, Philanthropist</h2>
+            <p>Born October 28, 1955. Three children to Melinda French, whom he married in 1994.</p>
+            <p>Principal founder of Microsoft, the worlds largest PC software company.</p>
+            <p>Co-founded the Bill & Melinda Gates Foundation with his wife, dedicated to philanthropic endeavours.</p>
+        </div>
+    </div>
+    
+    <div id="timelineContainer">
+
+        <div class="timeline"></div>
+
+        <div id="yearBorn">
+            <p class="year">1955</p>
+            <p>Born October 28</p>
+            <p>Seattle, WA.</p>
+        </div>
+
+        <div class="timelineRow">
+            <div class="eventContainer eventLeft">
+                <div class="cardYear yearRight">
+                    <p>1968</p>
+                </div>
+                <div class="hoverable card">
+                    <div class="card-content">
+                        <span class="card-title">
+                            Learning to Code
+                            <div class="cardTriangle triangleRight"></div>
+                        </span>
+                        <div class="cardText">
+                            <p>
+                                At 13 years old, Bill Gates learns BASIC alongside his childhood friend, Paul
+                                <span style="white-space: nowrap">Allen. <a href="#!" id="1968More" class="moreOrLessButton">More</a></span>
+                                
+                            </p>
+                            <div class="1968Text expandable collapsed">
+                                <p>
+                                    In the school computer lab - one of the first in the U.S. - they take advantage of bugs in the
+                                    time
+                                    scheduler to obtain free computer time. They have their privileges revoked, but are allowed
+                                    back when
+                                    they offer to fix the bugs.
+                                </p>
+                                <p>
+                                    They also write a class scheduling program, in which Bill ensures he would share classes with
+                                    the most
+                                    interesting girls, and together they start Traf-O-Data, reading traffic data for engineers.
+                                </p>
+                                <p>
+                                    While not considered successful - losing $3,494 in the end - Bill and Allen gain experience
+                                    simulating microprocessors,
+                                    which will contribute significantly to their next venture.
+                                    <a href="#!" id="1968Less" class="moreOrLessButton">Less</a>
+                                </p>
+                            </div>
+                        </div>
+                        <a id="1968Stats" class="expandStatsButton btn-floating btn-large waves-effect waves-light"><i class="material-icons">bar_chart</i></a>
+                        <div class="1968Stats expandable collapsed">
+                            <div class="chartContainer">
+                                <canvas id="1968Chart"></canvas>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="eventContainer eventRight">
+                <div class="cardYear yearLeft">
+                    <p>1975</p>
+                </div>
+                <div class="hoverable card">
+                    <div class="card-content">
+                        <span class="card-title">
+                            Leaving Harvard to Start "Micro-Soft"
+                            <div class="cardTriangle triangleLeft"></div>
+                        </span>
+                        <div class="cardText">
+                            <p>
+                                Allen returns to Massachusetts. He and Bill see a Popular Electronics article featuring the Altair
+                                8800
+                                <span style="white-space: nowrap">microcomputer. <a href="#!" id="1975More" class="moreOrLessButton">More</a></span>
+                            </p>
+                            <div class="1975Text expandable collapsed">
+                                <p>
+                                    MITS' Altair 8800 is the first successful personal computer. Bill recognises its potential
+                                    early, knowing
+                                    it's powerful enough to support an interpreter for BASIC - one of the most popular languages at
+                                    the time.
+                                    Racing to beat competition, Bill and Allen call MITS before having started to make their offer,
+                                    which is accepted.
+                                </p>
+                                <p>
+                                    Using tools from Traf-O-Data, Allen simulates the Altair's chipset while Bill writes 8800
+                                    assembly by hand on legal pads.
+                                    Two other Harvard students - Paul Gilbert and Monte Davidoff - also help with the project.
+                                </p>
+                                <p>
+                                    Despite developing with only a simulated chipset, and Paul finishing the program on the plane
+                                    to MITS, it works perfectly.
+                                    Bill and Allen license the first general purpose programming language for a personal computer
+                                    to MITS, and start calling
+                                    their ventures "Micro-Soft".
+                                    <a href="#!" id="1975Less" class="moreOrLessButton"> Less</a>
+                                </p>
+                            </div>
+                        </div>
+                        <a id="1975Stats" class="expandStatsButton btn-floating btn-large waves-effect waves-light"><i class="material-icons">bar_chart</i></a>
+                        <div class="1975Stats expandable collapsed">
+                            <div class="chartContainer">
+                                <canvas id="1975Chart"></canvas>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="timelineRow">
+            <div class="eventContainer eventLeft">
+                <div class="cardYear yearRight">
+                    <p>1976</p>
+                </div>
+                <div class="hoverable card">
+                    <div class="card-content">
+                        <span class="card-title">
+                            Growing Microsoft
+                            <div class="cardTriangle triangleRight"></div>
+                        </span>
+                        <div class="cardText">
+                            <p>
+                                The trade name "Microsoft" is registered with the Secretary of the State of New Mexico on November
+                                26,
+                                <span style="white-space: nowrap">1976. <a href="#!" id="1976More" class="moreOrLessButton">More</a></span>
+                            </p>
+            
+                            <div class="1976Text expandable collapsed">
+                                <p>
+                                    With the name decided and registered, Microsoft opens its first real offices in One Park
+                                    Central Tower, Albuquerque, primarily providing
+                                    BASIC to other computer manufactuers, and hires 4 additional employees.
+                                </p>
+                                <p>
+                                    Bill does payroll, taxes, contracts, marketing, and hiring
+                                    while developing software himself. Microsoft also starts its first international office in
+                                    Japan; ASCII Microsoft (now Microsoft Japan).
+                                    <a href="#!" id="1976Less" class="moreOrLessButton">Less</a>
+                                </p>
+                            </div>
+                        </div>
+                        <a id="1976Stats" class="expandStatsButton btn-floating btn-large waves-effect waves-light"><i class="material-icons">bar_chart</i></a>
+                        <div class="1976Stats expandable collapsed">
+                            <div class="chartContainer">
+                                <canvas id="1976Chart"></canvas>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="eventContainer eventRight">
+                <div class="cardYear yearLeft">
+                    <p>1979</p>
+                </div>
+                <div class="hoverable card">
+                    <div class="card-content">
+                        <span class="card-title">
+                            Microsoft Moves to Washington
+                            <div class="cardTriangle triangleLeft"></div>
+                        </span>
+                        <div class="cardText">
+                            <p>
+                                Microsoft moves its headquarters to Bellevue, Washington, and Bill throws himself into his
+                                <span style="white-space: nowrap">work. <a href="#!" id="1979More" class="moreOrLessButton">More</a></span>
+                            </p>
+                            <div class="1979Text expandable collapsed">
+                                <p>
+                                    With greater access to top programmers, Microsoft grows to 28 employees, each with broad
+                                    responsibilities for all aspects of the young
+                                    company.
+                                </p>
+                                <p>
+                                    Microsoft had variants of BASIC for the Commodore 64, original IBM PC, and Apple II. Their
+                                    first hardware product, the Z-80 SoftCard
+                                    which allows Apple II to run the Intel CP/M operating system, becomes their primary revenue.
+                                    <a href="#!" id="1979Less" class="moreOrLessButton">Less</a>
+                                </p>
+                            </div>
+                        </div>
+                        <a id="1979Stats" class="expandStatsButton btn-floating btn-large waves-effect waves-light"><i class="material-icons">bar_chart</i></a>
+                        <div class="1979Stats expandable collapsed">
+                            <div class="chartContainer">
+                                <canvas id="1979Chart"></canvas>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="timelineRow">
+            <div class="eventContainer eventLeft">
+                <div class="cardYear yearRight">
+                    <p>1980</p>
+                </div>
+                <div class="hoverable card">
+                    <div class="card-content">
+                        <span class="card-title">
+                            MS-DOS and IBM
+                            <div class="cardTriangle triangleRight"></div>
+                        </span>
+                        <div class="cardText">
+                            <p>
+                                Bill travels with his mother Mary, a highly respected member of several corporate boards, selling
+                                his software. Through Mary, he meets the CEO of
+                                <span style="white-space: nowrap">IBM. <a href="#!" id="1980More" class="moreOrLessButton">More</a></span>
+                            </p>
+                            <div class="1980Text expandable collapsed">
+                                <p>
+                                    Having convinced IBM that he can provide a new operating system for their upcoming PCs without
+                                    having developed it,
+                                    Bill purchases exclusive licensing rights of another system, Q-DOS, without telling the
+                                    developers of his intentions.
+                                </p>
+                                <p>
+                                    Microsoft rebrands Q-DOS as PC-DOS for IBM and retains the rights to ship their own version
+                                    called MS-DOS, which includes BASIC,
+                                    and licences it to IBM-clone companies.
+                                </p>
+                                <p>
+                                    At the same time, Microsoft builds their own operating system, Xenix, which becomes the most
+                                    popular version of Unix by number of
+                                    machines running it.
+                                </p>
+                                <p>
+                                    IBM and Microsoft's partnership would eventually end with a feud over their competing operating
+                                    systems.
+                                    <a href="#!" id="1980Less" class="moreOrLessButton">Less</a>
+                                </p>
+                            </div>
+                        </div>
+                        <a id="1980Stats" class="expandStatsButton btn-floating btn-large waves-effect waves-light"><i class="material-icons">bar_chart</i></a>
+                        <div class="1980Stats expandable collapsed">
+                            <div class="chartContainer">
+                                <canvas id="1980Chart"></canvas>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="eventContainer eventRight">
+                <div class="cardYear yearLeft">
+                    <p>1983</p>
+                </div>
+                <div class="hoverable card">
+                    <div class="card-content">
+                        <span class="card-title">
+                            Paul Allen Leaves Microsoft
+                            <div class="cardTriangle triangleLeft"></div>
+                        </span>
+                        <div class="cardText">
+                            <p>
+                                After a Hodgkin's Lymphoma diagnosis, Paul decides to leave his stressful job at
+                                <span style="white-space: nowrap">Microsoft. <a href="#!" id="1983More" class="moreOrLessButton">More</a></span>
+                            </p>
+                            <div class="1983Text expandable collapsed">
+                                <p>
+                                    Bill and Allen's relationship has become tumultuous. Despite Allen spearheading the deal with
+                                    IBM that would become an overwhelming success
+                                    for Microsoft, Bill believes his work on BASIC entitled him to a 60-40 split of the company.
+                                </p>
+                                <p>
+                                    In late December 1982, Paul hears Bill and Steve Ballmer - fellow Harvard student and the first
+                                    business manager Bill hired at Microsoft -
+                                    discuss plans to dilute his shares by issuing options to themselves and the other shareholders.
+                                </p>
+                                <p>
+                                    He bursts in on them and shouts, "This is unbelievable! It shows your true character, once and
+                                    for all." Caught red-handed, Gates and Ballmer
+                                    are silent.
+                                </p>
+                                <p>
+                                    Allen resigns two months later, keeping his shares in Microsoft that would eventually make him
+                                    a billionaire.
+                                    <a href="#!" id="1983Less" class="moreOrLessButton">Less</a>
+                                </p>
+                            </div>
+                        </div>
+                        <a id="1983Stats" class="expandStatsButton btn-floating btn-large waves-effect waves-light"><i class="material-icons">bar_chart</i></a>
+                        <div class="1983Stats expandable collapsed">
+                            <div class="chartContainer">
+                                <canvas id="1983Chart"></canvas>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="timelineRow">
+            <div class="eventContainer eventLeft">
+                <div class="cardYear yearRight">
+                    <p>1985</p>
+                </div>
+                <div class="hoverable card">
+                    <div class="card-content">
+                        <span class="card-title">
+                            Windows 1.0
+                            <div class="cardTriangle triangleRight"></div>
+                        </span>
+                        <div class="cardText">
+                            <p>
+                                The first version of Microsoft Windows is released as a graphical interface on top of MS-DOS.
+                                Windows will dominate the PC operating system market for decades.
+                            </p>
+                        </div>
+                        <a id="1985Stats" class="expandStatsButton btn-floating btn-large waves-effect waves-light"><i class="material-icons">bar_chart</i></a>
+                        <div class="1985Stats expandable collapsed">
+                            <div class="chartContainer">
+                                <p>
+                                    Employees: 910
+                                </p>
+                                <p>
+                                    Revenue: $140,417,000
+                                </p>
+                                <canvas id="1985Chart"></canvas>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="eventContainer eventRight">
+                <div class="cardYear yearLeft">
+                    <p>1986</p>
+                </div>
+                <div class="hoverable card">
+                    <div class="card-content">
+                        <span class="card-title">
+                            Microsoft Goes Public
+                            <div class="cardTriangle triangleLeft"></div>
+                        </span>
+                        <div class="cardText">
+                            <p>
+                                In an effort to provide value for employee shareholders, Microsoft stock goes public.
+                                The company raises $61 million at $21 per share, rising to $29 by the end of the day.
+                            </p>
+                        </div>
+                        <a id="1986Stats" class="expandStatsButton btn-floating btn-large waves-effect waves-light"><i class="material-icons">bar_chart</i></a>
+                        <div class="1986Stats expandable collapsed">
+                            <div class="chartContainer">
+                                <p>
+                                    Employees: 1,442
+                                </p>
+                                <p>
+                                    Revenue: $197,514,000
+                                </p>
+                                <canvas id="1986Chart"></canvas>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="timelineRow">
+            <div class="eventContainer eventLeft">
+                <div class="cardYear yearRight">
+                    <p>1987</p>
+                </div>
+                <div class="hoverable card">
+                    <div class="card-content">
+                        <span class="card-title">
+                            Youngest Self-made Billionaire Ever
+                            <div class="cardTriangle triangleRight"></div>
+                        </span>
+                        <div class="cardText">
+                            <p>
+                                Reaching a net worth of $1.25 billion, Forbes magazine lists Bill Gates as the world's youngest
+                                self-made billionaire.
+                            </p>
+                        </div>
+                        <a id="1987Stats" class="expandStatsButton btn-floating btn-large waves-effect waves-light"><i class="material-icons">bar_chart</i></a>
+                        <div class="1987Stats expandable collapsed">
+                            <div class="chartContainer">
+                                <canvas id="1987Chart"></canvas>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="eventContainer eventRight">
+                <div class="cardYear yearLeft">
+                    <p>1989</p>
+                </div>
+                <div class="hoverable card">
+                    <div class="card-content">
+                        <span class="card-title">
+                            Microsoft Office
+                            <div class="cardTriangle triangleLeft"></div>
+                        </span>
+                        <div class="cardText">
+                            <p>
+                                Microsoft releases a bundle of separate office productivity applications such as Word, Excel, and
+                                PowerPoint.
+                                By 2012, Office will be used by over a billion people worldwide.
+                            </p>
+                        </div>
+                        <a id="1989Stats" class="expandStatsButton btn-floating btn-large waves-effect waves-light"><i class="material-icons">bar_chart</i></a>
+                        <div class="1989Stats expandable collapsed">
+                            <div class="chartContainer">
+                                <canvas id="1989Chart"></canvas>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="timelineRow">
+            <div class="eventContainer eventLeft">
+                <div class="cardYear yearRight">
+                    <p>1994</p>
+                </div>
+                <div class="hoverable card">
+                    <div class="card-content">
+                        <span class="card-title">
+                            Bill Marries Melinda French
+                            <div class="cardTriangle triangleRight"></div>
+                        </span>
+                        <div class="cardText">
+                            <p>
+                                On January 1st 1994, Bill Gates, 38, marries Melinda French, 29, on the Hawaiian island of Lanai.
+                                Together they will have three children: Jennifer (1996), Rory (1999), and Phoebe
+                                <span style="white-space: nowrap">(2002). <a href="#!" id="1994More" class="moreOrLessButton">More</a></span>
+                            </p>
+            
+                            <div class="1994Text expandable collapsed">
+                                <p>
+                                    The William H. Gates Foundation is formed, dedicated to supporing education, world health, and
+                                    investment in low income communities.
+                                    <a href="#!" id="1994Less" class="moreOrLessButton">Less</a>
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="eventContainer eventRight">
+                <div class="cardYear yearLeft">
+                    <p>1995</p>
+                </div>
+                <div class="hoverable card">
+                    <div class="card-content">
+                        <span class="card-title">
+                            Richest Man in the World
+                            <div class="cardTriangle triangleLeft"></div>
+                        </span>
+                        <div class="cardText">
+                            <p>
+                                With a personal net worth of $76 billion, Bill tops the Forbes list of wealthiest
+                                <span style="white-space: nowrap">people. <a href="#!" id="1995More" class="moreOrLessButton">More</a></span>
+                            </p>
+                            <div class="1995Text expandable collapsed">
+                                <p>
+                                    Windows 95 releases with the first appearance of the Start button. It ships without an Internet
+                                    browser,
+                                    but after being surprised with the growing popularity of the Internet, Microsoft includes
+                                    Internet Explorer.
+                                    <a href="#!" id="1995Less" class="moreOrLessButton">Less</a>
+                                </p>
+                            </div>
+                        </div>
+                        <a id="1995Stats" class="expandStatsButton btn-floating btn-large waves-effect waves-light"><i class="material-icons">bar_chart</i></a>
+                        <div class="1995Stats expandable collapsed">
+                            <div class="chartContainer">
+                                <canvas id="1995Chart"></canvas>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="timelineRow">
+            <div class="eventContainer eventLeft">
+                <div class="cardYear yearRight">
+                    <p>2000</p>
+                </div>
+                <div class="hoverable card">
+                    <div class="card-content">
+                        <span class="card-title">
+                            The Bill & Melinda Gates Foundation
+                            <div class="cardTriangle triangleRight"></div>
+                        </span>
+                        <div class="cardText">
+                            <p>
+                                The Bill H. Gates Foundation is expanded with a $5 billion contribution towards improving global
+                                healthcare and education, and ending 
+                                <span style="white-space: nowrap">poverty. <a href="#!" id="2000More" class="moreOrLessButton">More</a></span>
+                            </p>
+                            <div class="2000Text expandable collapsed">
+                                <p>
+                                    The Bill & Melinda Gates Foundation is the largest philanthropic...
+                                </p>
+                                <p>
+                                    <a href="#!" id="2000Less" class="moreOrLessButton">Less</a>
+                                </p>
+                            </div>
+                        </div>
+                        <a id="2000Stats" class="expandStatsButton btn-floating btn-large waves-effect waves-light"><i class="material-icons">bar_chart</i></a>
+                        <div class="2000Stats expandable collapsed">
+                            <div class="chartContainer">
+                                <canvas id="2000Chart"></canvas>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="eventContainer eventRight">
+                <div class="cardYear yearLeft">
+                    <p>2002</p>
+                </div>
+                <div class="hoverable card">
+                    <div class="card-content">
+                        <span class="card-title">
+                            The Foundation Installs 47,000 Computers in 11,000 Libraries Across the U.S.
+                            <div class="cardTriangle triangleLeft"></div>
+                        </span>
+                        <div class="cardText">
+                            <p>
+                                Since 1998, The Foundation has committed $250 million to help state libraries continue to provide
+                                no-cost access to computers and the Internet
+                                for the public as part of the "Staying Connected"
+                                <span style="white-space: nowrap">program. <a href="#!" id="2002More" class="moreOrLessButton">More</a></span>
+                            </p>
+            
+                            <div class="2002Text expandable collapsed">
+                                <p>
+                                    More than 14 million Americans use libraries computer and Internet access, over 2/3rds of which
+                                    are people with lower income and education levels.
+                                    Additionally, The Foundation works with Libraries for the Future to strengthen librarians'
+                                    capacities for community outreach.
+                                    <a href="#!" id="2002Less" class="moreOrLessButton">Less</a>
+                                </p>
+                            </div>
+                        </div>
+                        <a id="2002Stats" class="expandStatsButton btn-floating btn-large waves-effect waves-light"><i class="material-icons">bar_chart</i></a>
+                        <div class="2002Stats expandable collapsed">
+                            <div class="chartContainer">
+                                <canvas id="2002Chart"></canvas>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="timelineRow">
+            <div class="eventContainer eventLeft">
+                <div class="cardYear yearRight">
+                    <p>2006</p>
+                </div>
+                <div class="hoverable card">
+                    <div class="card-content">
+                        <span class="card-title">
+                            Warren Buffet Pledges the Bulk of His Wealth to the Foundation
+                            <div class="cardTriangle triangleRight"></div>
+                        </span>
+                        <div class="cardText">
+                            <p>
+                                The world's richest person with an estimated worth of $62 billion, Warren Buffet pledges to give
+                                the foundation 10 million Berkshire Hathaway
+                                Class B shares spread over multiple years, with the first year's contribution being worth around
+                                $1.5
+                                <span style="white-space: nowrap">billion. <a href="#!" id="2006More" class="moreOrLessButton">More</a></span>
+                            </p>
+            
+                            <div class="2006Text expandable collapsed">
+                                <p>
+                                    Buffet sets three conditions; that Bill or Mellinda must be alive and active to the
+                                    foundation's administration, it must continue as a charity,
+                                    and each year it must give away an amount equal to the intial gift, plus an additional 5% of
+                                    its net assets.
+                                </p>
+                                <p>
+                                    This final condition is effectively a matching contribution, doubling the foundation's annual
+                                    grants. In 2018, Buffet continues his
+                                    contributions with another $2 billion in Berkshire stock.
+                                </p>
+                                <p>
+                                    TerraPower also launches, with the aims to provide the world with a more affordable, secure,
+                                    and environmentally friendly form of nuclear energy.
+                                    <a href="#!" id="2006Less" class="moreOrLessButton">Less</a>
+                                </p>
+                            </div>
+            
+                        </div>
+                        <a id="2006Stats" class="expandStatsButton btn-floating btn-large waves-effect waves-light"><i class="material-icons">bar_chart</i></a>
+                        <div class="2006Stats expandable collapsed">
+                            <div class="chartContainer">
+                                <canvas id="2006Chart"></canvas>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="eventContainer eventRight">
+                <div class="cardYear yearLeft">
+                    <p>2008</p>
+                </div>
+                <div class="hoverable card">
+                    <div class="card-content">
+                        <span class="card-title">
+                            Bill Retires from Day-to-Day Duties at Microsoft
+                            <div class="cardTriangle triangleLeft"></div>
+                        </span>
+            
+                        <div class="cardText">
+                            <p>
+                                Dedicating the majority of his time to the foundation and having recently pledged $50 million to
+                                fight the Epola epidemic,
+                                Gates moves to the role of chairman and adviser for important projects only.
+                            </p>
+                        </div>
+            
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="timelineRow">
+            <div class="eventContainer eventLeft">
+                <div class="cardYear yearRight">
+                    <p>2010</p>
+                </div>
+                <div class="hoverable card">
+                    <div class="card-content">
+                        <span class="card-title">
+                            The Decade of Vaccines
+                            <div class="cardTriangle triangleRight"></div>
+                        </span>
+                        <div class="cardText">
+                            <p>
+                                The Foundation pledges $10 billion to research, develop, and deliver vaccines to the world's
+                                poorest
+                                <span style="white-space: nowrap">countries. <a href="#!" id="2010More" class="moreOrLessButton">More</a></span>
+                            </p>
+                            <div class="2010Text expandable collapsed">
+                                <p>
+                                    Immunisation is one of the most feasible and cost-effective way of ensuring children survive
+                                    and thrive in good health.
+                                    Because of its power and efficacy, renewed efforts are being made globally to immunise all
+                                    children and develop new vaccines for
+                                    the remaining killer diseases.
+                                </p>
+                                <p>
+                                    DPT3 is the third and final dose of vaccinations that prevent diphtheria, pertussis (whooping
+                                    cough), and tetanus -
+                                    three deadly but preventable diseases. The percentage of children receiving DPT3 is one metric
+                                    of how well countries
+                                    are providing immunisation coverage to their children.
+                                </p>
+                                <p>
+                                    The World Health Organisation defined a 90% national DPT3 coverage rate by 2020 as one of the
+                                    Global Vaccine Action Plan's goals.
+                                    In 2017, the coverage rate averaged an estimated 88.13%.
+                                    <a href="#!" id="2010Less" class="moreOrLessButton">Less</a>
+                                </p>
+                            </div>
+                        </div>
+                        <a id="2010Stats" class="expandStatsButton btn-floating btn-large waves-effect waves-light"><i class="material-icons">bar_chart</i></a>
+                        <div class="2010Stats expandable collapsed">
+                            <div class="chartContainer">
+                                <canvas id="2010Chart"></canvas>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="eventContainer eventRight">
+                <div class="cardYear yearLeft">
+                    <p>2011</p>
+                </div>
+                <div class="hoverable card">
+                    <div class="card-content">
+                        <span class="card-title">
+                            Reinvent the Toilet Challenge
+                            <div class="cardTriangle triangleLeft"></div>
+                        </span>
+                        <div class="cardText">
+                            <p>
+                                The Foundation joins global innovators in the Reinvent the Toilet Challenge to support 4.5 billion
+                                people who lack safe
+                                <span style="white-space: nowrap">sanitation. <a href="#!" id="2011More" class="moreOrLessButton">More</a></span>
+                            </p>
+                            <div class="2011Text expandable collapsed">
+                                <p>
+                                    The aim of the challenge was to create a toilet that:
+                                    <ul>
+                                        <li>Sanitises and reclaims energy, water, and nutrients from human waste.</li>
+                                        <li>Operates without connections to water, sewer, or electrical lines.</li>
+                                        <li>Costs less than 5 U.S. cents per day to operate.</li>
+                                        <li>Promotes sustainable and financially profitable sanitation services and businesses that
+                                            operate in poor, urban settings.</li>
+                                        <li>Is a trully aspirational next-generation product that everyone will want to use - in
+                                            both developed and developing nations.</li>
+                                    </ul>
+                                </p>
+                                <p>
+                                    A year later, three winners from the Californian Institute of Technology, Loughborough
+                                    University, and University of Toronto were
+                                    recognised for closely matching the required criteria.
+                                    <a href="#!" id="2011Less" class="moreOrLessButton">Less</a>
+                                </p>
+                            </div>
+                        </div>
+                        <a id="2011Stats" class="expandStatsButton btn-floating btn-large waves-effect waves-light"><i class="material-icons">bar_chart</i></a>
+                        <div class="2011Stats expandable collapsed">
+                            <div class="chartContainer">
+                                <canvas id="2011Chart"></canvas>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="timelineRow">
+            <div class="eventContainer eventLeft">
+                <div class="cardYear yearRight">
+                    <p>2013</p>
+                </div>
+                <div class="hoverable card">
+                    <div class="card-content">
+                        <span class="card-title">
+                            Efforts to Eradicate Polio by 2018
+                            <div class="cardTriangle triangleRight"></div>
+                        </span>
+                        <div class="cardText">
+                            <p>
+                                Over three years, The Gates Foundation gives $300 million to Rotary, joining the Global Polio
+                                Eradication
+                                <span style="white-space: nowrap">Initiative. <a href="#!" id="2013More" class="moreOrLessButton">More</a></span>
+                            </p>
+                            <div class="2013Text expandable collapsed">
+                                <p>
+                                    As of November 2018, wild Polio has been eradicated in all but two countries, with 19 cases in
+                                    Afghanistan and 8 in Pakistan. In some
+                                    cases where a population is seriously under-immunised, excreted vaccine-virus can circulate for
+                                    an extended period of time. The longer it survives,
+                                    the more genetic changes it undergoes.
+                                </p>
+                                <p>
+                                    In very rare instances, the vaccine-virus changes genetically into a form that can paralyse -
+                                    known as a circulating vaccine-derived
+                                    poliovirus (cVDPV). Several countries had cVDPV cases in 2018; 19 in the Democratic Republic of
+                                    the Congo, 8 in Niger, 27 in Nigeria,
+                                    25 in Papua New Guinea, and 13 in Somalia.
+                                </p>
+                                <p>
+                                    With more than 10 billion doses of oral polio vaccine administered to nearly 3 billion children
+                                    worldwide, 13 million cases of polio have
+                                    been prevented. This has also resulted in up to 760 VDPV cases. In April 2016, the component
+                                    responsible for 90% of cVDPV cases was replaced.
+                                </p>
+                                <p>
+                                    Remaining cVDPV cases can rapidly be stopped with up to 3 rounds of high-quality immunisation
+                                    campaigns.
+                                    <a href="#!" id="2013Less" class="moreOrLessButton">Less</a>
+                                </p>
+                            </div>
+                        </div>
+                        <a id="2013Stats" class="expandStatsButton btn-floating btn-large waves-effect waves-light"><i class="material-icons">bar_chart</i></a>
+                        <div class="2013Stats expandable collapsed">
+                            <div class="chartContainer">
+                                <canvas id="2013Chart"></canvas>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="eventContainer eventRight">
+                <div class="cardYear yearLeft">
+                    <p>2015</p>
+                </div>
+                <div class="hoverable card">
+                    <div class="card-content">
+                        <span class="card-title">
+                            The Foundation Offers a Years Paid Leave After Birth or Adoption of a Child
+                            <div class="cardTriangle triangleLeft"></div>
+                        </span>
+                        <div class="cardText">
+                            <p>
+                                Melinda Gates says, "When we invest in women and children, we are investing in a healthier, more
+                                prosperous future for
+                                <span style="white-space: nowrap">everyone." <a href="#!" id="2015More" class="moreOrLessButton">More</a></span>
+                            </p>
+            
+                            <div class="2015Text expandable collapsed">
+                                <p>
+                                    Paid parental leave has been linked to higher birth weights, lower rates of infant mortality,
+                                    long-term emotional health of both parents
+                                    and children, and greater engagement from fathers and professional opportunity for mothers.
+                                    <a href="#!" id="2015Less" class="moreOrLessButton">Less</a>
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="timelineRow">
+            <div class="eventContainer eventLeft">
+                <div class="cardYear yearRight">
+                    <p>2017</p>
+                </div>
+                <div class="hoverable card">
+                    <div class="card-content">
+                        <span class="card-title">
+                            The Goalkeepers Report, Alzheimer's Research, and 'Smart City'
+                            <div class="cardTriangle triangleRight"></div>
+                        </span>
+                        <div class="cardText">
+                            <p>
+                                The Foundation launches the first annual Goalkeepers Report - an examination of the progress made
+                                in several important areas related to
+                                public health including child mortality, malnutrition, and
+                                <span style="white-space: nowrap">HIV. <a href="#!" id="2017More" class="moreOrLessButton">More</a></span>
+                            </p>
+                            <div class="2017Text expandable collapsed">
+                                <p>
+                                    The Foundation identifies infectious and chronic diseases as the two biggest public health
+                                    concerns to be addressed in the coming decade.
+                                </p>
+                                <p>
+                                    Gates donates $50 million to the Dementia Recovery Fund, and a further $50 million towards
+                                    start-up Alzheimer's research.
+                                </p>
+                                <p>
+                                    Once of Gate's firms invests $80 million into the development of a proposed city called Belmont
+                                    near Phoenix, Arizona, with the aims to
+                                    "create a forward-thinking community with a communication and infrastructure spine that
+                                    embraces cutting-edge technology."
+                                </p>
+                                <p>
+                                    The city is propsed to contain 3,800 acres of office, commercial, and retail, 470 for public
+                                    schools, and the rest for
+                                    80,000 residential units.
+                                    <a href="#!" id="2017Less" class="moreOrLessButton">Less</a>
+                                </p>
+                            </div>
+                        </div>
+                        <a id="2017Stats" class="expandStatsButton btn-floating btn-large waves-effect waves-light"><i class="material-icons">bar_chart</i></a>
+                        <div class="2017Stats expandable collapsed">
+                            <div class="chartContainer">
+                                <canvas id="2017Chart"></canvas>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="eventContainer eventRight">
+                <div class="cardYear yearLeft">
+                    <p>2018</p>
+                </div>
+                <div class="hoverable card">
+                    <div class="card-content">
+                        <span class="card-title">
+                            Universal Flu Vaccine
+                            <div class="cardTriangle triangleLeft"></div>
+                        </span>
+                        <div class="cardText">
+                            <p>
+                                Gates awards $12 in grants awarded to individual efforts to develop a universal flu vaccine that
+                                are "bold and innovative", indicating more
+                                was to come. Clinical trials aim to begin by 2021.
+                            </p>
+                        </div>
+                        <a id="2018Stats" class="expandStatsButton btn-floating btn-large waves-effect waves-light"><i class="material-icons">bar_chart</i></a>
+                        <div class="2018Stats expandable collapsed">
+                            <div class="chartContainer">
+                                <canvas id="2018Chart"></canvas>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+<script src="https://unpkg.com/scrollreveal"></script>
+<script src='https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.3/Chart.min.js'></script>
+<script src='main.js'></script>
+</body>
+</html>

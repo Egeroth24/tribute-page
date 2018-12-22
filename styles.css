@@ -1,0 +1,359 @@
+* {
+  padding: 0;
+  margin: 0;
+  border: 0;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  font-family: "roboto";
+}
+
+body {
+  height: 100%;
+}
+
+.placeholder {
+  background-color: rgba(126, 126, 126, 0.25);
+  border: 1px solid #e3e3e3;
+  border-radius: 4px;
+}
+
+#indexBanner {
+  min-height: 75vh;
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: 1fr 2fr;
+      grid-template-columns: 1fr 2fr;
+      grid-template-areas: "portrait description";
+  background-color: #212121;
+  color: white;
+}
+
+#indexBanner .portrait {
+  -ms-grid-row: 1;
+  -ms-grid-column: 1;
+  grid-area: portrait;
+  -ms-flex-item-align: center;
+      -ms-grid-row-align: center;
+      align-self: center;
+  -ms-grid-column-align: end;
+      justify-self: end;
+}
+
+#indexBanner .portrait img {
+  max-width: 100%;
+}
+
+#indexBanner .description {
+  -ms-grid-row: 1;
+  -ms-grid-column: 2;
+  grid-area: description;
+}
+
+#indexBanner .description h1 {
+  font-size: 48px;
+  margin-bottom: 4px;
+}
+
+#indexBanner .description h2 {
+  font-size: 28px;
+  margin-top: 0;
+  margin-bottom: 40px;
+}
+
+#indexBanner .description p {
+  font-size: 18px;
+  margin: 10px;
+}
+
+#timelineContainer {
+  background-color: #212121;
+  position: relative;
+}
+
+#timelineContainer .timeline {
+  position: absolute;
+  left: 50%;
+  top: 90px;
+  height: calc(100% - 90px);
+  width: 8px;
+  background-color: white;
+}
+
+#timelineContainer #yearBorn {
+  text-align: center;
+  color: white;
+}
+
+#timelineContainer #yearBorn .year {
+  font-size: 24px;
+}
+
+#timelineContainer #yearBorn p {
+  font-size: 18px;
+}
+
+#timelineContainer .timelineRow {
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: 1fr 1fr;
+      grid-template-columns: 1fr 1fr;
+  -ms-grid-rows: auto auto;
+      grid-template-rows: auto auto;
+      grid-template-areas: "eventLeft ." ". eventRight";
+}
+
+@media only screen and (max-width: 780px) {
+  #timelineContainer .timelineRow {
+    -ms-grid-columns: 1fr;
+        grid-template-columns: 1fr;
+    -ms-grid-rows: auto auto;
+        grid-template-rows: auto auto;
+        grid-template-areas: "eventLeft" "eventRight";
+  }
+}
+
+#timelineContainer .cardTriangle {
+  position: absolute;
+  top: 0;
+  width: 0;
+  height: 0;
+  border-top: 21px solid transparent;
+  border-bottom: 21px solid transparent;
+}
+
+#timelineContainer .cardTriangle.triangleRight {
+  border-left: 21px solid #3E50B4;
+  right: -21px;
+}
+
+@media only screen and (max-width: 780px) {
+  #timelineContainer .cardTriangle.triangleRight {
+    margin-left: auto;
+    margin-right: auto;
+    left: 8px;
+    right: 0;
+    top: -31px;
+    -webkit-transform: rotate(-90deg);
+            transform: rotate(-90deg);
+  }
+}
+
+#timelineContainer .cardTriangle.triangleLeft {
+  border-right: 21px solid #3E50B4;
+  left: -21px;
+}
+
+@media only screen and (max-width: 780px) {
+  #timelineContainer .cardTriangle.triangleLeft {
+    margin-left: auto;
+    margin-right: auto;
+    left: 8px;
+    right: 0;
+    top: -31px;
+    -webkit-transform: rotate(90deg);
+            transform: rotate(90deg);
+  }
+}
+
+#timelineContainer .eventContainer {
+  width: 75%;
+  margin: 25px;
+  margin-top: 45px;
+  position: relative;
+}
+
+@media only screen and (max-width: 780px) {
+  #timelineContainer .eventContainer {
+    margin-top: 150px;
+  }
+}
+
+#timelineContainer .eventContainer.eventLeft {
+  -ms-grid-row: 1;
+  -ms-grid-column: 1;
+  grid-area: eventLeft;
+  margin-left: auto;
+  margin-right: 60px;
+}
+
+@media only screen and (max-width: 780px) {
+  #timelineContainer .eventContainer.eventLeft {
+    margin-right: auto;
+  }
+}
+
+#timelineContainer .eventContainer.eventRight {
+  -ms-grid-row: 2;
+  -ms-grid-column: 2;
+  grid-area: eventRight;
+  margin-right: auto;
+  margin-left: 68px;
+}
+
+@media only screen and (max-width: 780px) {
+  #timelineContainer .eventContainer.eventRight {
+    margin-left: auto;
+  }
+}
+
+#timelineContainer .eventContainer .cardYear {
+  position: absolute;
+  width: 75px;
+  height: 75px;
+  text-align: center;
+  border: 4px solid white;
+  border-radius: 50%;
+  background-color: #212121;
+  color: white;
+  font-size: 26px;
+  top: -15px;
+}
+
+#timelineContainer .eventContainer .cardYear.yearRight {
+  right: -100px;
+}
+
+#timelineContainer .eventContainer .cardYear.yearLeft {
+  left: -100px;
+}
+
+@media only screen and (max-width: 780px) {
+  #timelineContainer .eventContainer .cardYear.yearRight, #timelineContainer .eventContainer .cardYear.yearLeft {
+    margin-left: auto;
+    margin-right: auto;
+    left: 8px;
+    right: 0;
+    top: -100px;
+  }
+}
+
+#timelineContainer .eventContainer .cardYear p {
+  line-height: 67px;
+  margin-right: 2px;
+}
+
+#timelineContainer .eventContainer .card {
+  margin: 0;
+}
+
+#timelineContainer .eventContainer .card-content {
+  padding: 0;
+}
+
+#timelineContainer .eventContainer .card-content .card-title {
+  position: relative;
+  background-color: #3E50B4;
+  padding: 5px;
+  margin: 0;
+  text-align: center;
+  color: white;
+}
+
+#timelineContainer .eventContainer .card-content .cardText {
+  padding: 5px;
+}
+
+#timelineContainer .eventContainer .card-content .cardText p {
+  padding: 10px;
+  font-size: 16px;
+}
+
+#timelineContainer .eventContainer .card-content .expandable {
+  max-height: 500px;
+  overflow: hidden;
+  opacity: 0;
+  -webkit-transition: max-height .5s, opacity, .5s;
+  transition: max-height .5s, opacity, .5s;
+}
+
+#timelineContainer .eventContainer .card-content .expandable.collapsed {
+  max-height: 0;
+}
+
+#timelineContainer .eventContainer .card-content .expandable ul {
+  padding-left: 40px;
+}
+
+#timelineContainer .eventContainer .card-content .expandable ul li {
+  list-style-type: circle;
+}
+
+#timelineContainer .eventContainer .card-content .expandStatsButton {
+  margin: 0 auto 10px 10px;
+  background-color: #3E50B4;
+}
+
+#timelineContainer .eventContainer .card-content .chartContainer {
+  padding: 10px 0 10px;
+}
+
+/* REFACTORING TO REMOVE MAGIC NUMBERS
+
+    .cardTriangle {
+        display: inline-block;
+        position: absolute;
+        top: 0;
+        width: 0;
+        height: 0;
+        border-top: 21px solid transparent;
+        border-bottom: 21px solid transparent;
+
+        &.triangleRight {
+            right: -21px;
+            border-left: 21px solid $primaryBlue;
+            @media only screen and (max-width: 780px) {
+                transform: rotate(-90deg);
+                right: calc(50% - 15px);
+                top: -30px;
+            }
+        }
+        &.triangleLeft {
+            left: -21px;
+            border-right: 21px solid $primaryBlue;
+            @media only screen and (max-width: 780px) {
+                transform: rotate(90deg);
+                left: calc(50% - 6px);
+                top: -30px;
+            }
+        }
+    }
+
+    .cardYear {
+        display: inline-block;
+        position: absolute;
+        top: -16px;
+        width: 75px;
+        height: 75px;
+        text-align: center;
+        border-radius: 50%;
+        background-color: $primaryDark;
+        z-index: 1;
+        border: 4px solid white;
+
+        &.yearRight {
+            right: -102px;
+            @media only screen and (max-width: 780px) {
+                right: calc(50% - 42px);
+                top: -100px;
+            }
+        }
+        &.yearLeft {
+            left: -95px;
+            @media only screen and (max-width: 780px) {
+                left: calc(50% - 34px);
+                top: -100px;
+            }
+        }
+
+        p {
+            font-weight: 400;
+            height: 65px;
+            line-height: 65px;
+            vertical-align: middle;
+        }
+
+    }
+
+
+*/
+/*# sourceMappingURL=styles.css.map */
