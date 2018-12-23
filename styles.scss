@@ -7,8 +7,8 @@ $primaryBlue: #3E50B4;
     font-family: "roboto";
 }
 
-body {
-    height: 100%;
+html {
+    overflow-x: hidden;
 }
 
 .placeholder {
@@ -156,6 +156,29 @@ body {
             }
         }
 
+        .card {
+            margin: 0;
+            opacity: 0;
+            &.fade-in {
+                opacity: 1;
+                transition: opacity 1s ease;
+                animation: slide-in 1s forwards;
+                @keyframes slide-in {
+                    100% { transform: (translateX(0%)) }
+                }
+                @media only screen and (max-width: 780px) {
+                    transform: translateY(10%);
+                }
+            }
+        }
+
+        &.eventRight .card {
+            transform: translateX(10%);
+        }
+        &.eventLeft .card {
+            transform: translateX(-10%);
+        }
+
         .cardYear {
             position: absolute;
             width: 75px;
@@ -191,10 +214,6 @@ body {
                 margin-right: 2px; // Centers the year that always starts with "1" as the font is not monospace.
             }
 
-        }
-
-        .card {
-            margin: 0;
         }
 
         .card-content {

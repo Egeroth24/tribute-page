@@ -7,8 +7,8 @@
   font-family: "roboto";
 }
 
-body {
-  height: 100%;
+html {
+  overflow-x: hidden;
 }
 
 .placeholder {
@@ -196,6 +196,50 @@ body {
   }
 }
 
+#timelineContainer .eventContainer .card {
+  margin: 0;
+  opacity: 0;
+}
+
+#timelineContainer .eventContainer .card.fade-in {
+  opacity: 1;
+  -webkit-transition: opacity 1s ease;
+  transition: opacity 1s ease;
+  -webkit-animation: slide-in 1s forwards;
+          animation: slide-in 1s forwards;
+}
+
+@-webkit-keyframes slide-in {
+  100% {
+    -webkit-transform: translateX(0%);
+            transform: translateX(0%);
+  }
+}
+
+@keyframes slide-in {
+  100% {
+    -webkit-transform: translateX(0%);
+            transform: translateX(0%);
+  }
+}
+
+@media only screen and (max-width: 780px) {
+  #timelineContainer .eventContainer .card.fade-in {
+    -webkit-transform: translateY(10%);
+            transform: translateY(10%);
+  }
+}
+
+#timelineContainer .eventContainer.eventRight .card {
+  -webkit-transform: translateX(10%);
+          transform: translateX(10%);
+}
+
+#timelineContainer .eventContainer.eventLeft .card {
+  -webkit-transform: translateX(-10%);
+          transform: translateX(-10%);
+}
+
 #timelineContainer .eventContainer .cardYear {
   position: absolute;
   width: 75px;
@@ -230,10 +274,6 @@ body {
 #timelineContainer .eventContainer .cardYear p {
   line-height: 67px;
   margin-right: 2px;
-}
-
-#timelineContainer .eventContainer .card {
-  margin: 0;
 }
 
 #timelineContainer .eventContainer .card-content {
