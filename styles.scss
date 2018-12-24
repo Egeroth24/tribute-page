@@ -161,8 +161,8 @@ html {
             opacity: 0;
             &.fade-in {
                 opacity: 1;
-                transition: opacity 1s ease;
-                animation: slide-in 1s forwards;
+                transition: opacity .75s ease;
+                animation: slide-in .75s forwards;
                 @keyframes slide-in {
                     100% { transform: (translateX(0%)) }
                 }
@@ -234,7 +234,7 @@ html {
                 }
             }
             .expandable {
-                max-height: 500px;
+                max-height: 0px;
                 overflow: hidden;
                 opacity: 0;
                 transition: max-height .5s, opacity, .5s;
@@ -247,14 +247,17 @@ html {
                         list-style-type: circle;
                     }
                 }
+                &.chart {
+                    opacity: 1;
+                    canvas {
+                       margin: 10px 0 10px 0;
+                    }
+                }
             }
             
             .expandStatsButton {
                 margin: 0 auto 10px 10px;
                 background-color: $primaryBlue;
-            }
-            .chartContainer {
-                padding: 10px 0 10px;
             }
             
         }
@@ -262,73 +265,3 @@ html {
     }
 
 }
-
-/* REFACTORING TO REMOVE MAGIC NUMBERS
-
-    .cardTriangle {
-        display: inline-block;
-        position: absolute;
-        top: 0;
-        width: 0;
-        height: 0;
-        border-top: 21px solid transparent;
-        border-bottom: 21px solid transparent;
-
-        &.triangleRight {
-            right: -21px;
-            border-left: 21px solid $primaryBlue;
-            @media only screen and (max-width: 780px) {
-                transform: rotate(-90deg);
-                right: calc(50% - 15px);
-                top: -30px;
-            }
-        }
-        &.triangleLeft {
-            left: -21px;
-            border-right: 21px solid $primaryBlue;
-            @media only screen and (max-width: 780px) {
-                transform: rotate(90deg);
-                left: calc(50% - 6px);
-                top: -30px;
-            }
-        }
-    }
-
-    .cardYear {
-        display: inline-block;
-        position: absolute;
-        top: -16px;
-        width: 75px;
-        height: 75px;
-        text-align: center;
-        border-radius: 50%;
-        background-color: $primaryDark;
-        z-index: 1;
-        border: 4px solid white;
-
-        &.yearRight {
-            right: -102px;
-            @media only screen and (max-width: 780px) {
-                right: calc(50% - 42px);
-                top: -100px;
-            }
-        }
-        &.yearLeft {
-            left: -95px;
-            @media only screen and (max-width: 780px) {
-                left: calc(50% - 34px);
-                top: -100px;
-            }
-        }
-
-        p {
-            font-weight: 400;
-            height: 65px;
-            line-height: 65px;
-            vertical-align: middle;
-        }
-
-    }
-
-
-*/

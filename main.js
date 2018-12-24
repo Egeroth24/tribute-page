@@ -42,52 +42,20 @@
         button.addEventListener('click', function() {
             let el = document.getElementsByClassName(button.id)[0];
             if (el.classList.contains('collapsed')) {
-                el.classList.remove('collapsed');
-                
-                let canvas = button.id + '';
-                canvas = canvas.replace('Stats', 'Chart');
-
-                // TODO: Move this to another function.
-                // TODO: Move chart data to object of all charts.
-                let ctx = document.getElementById(canvas).getContext('2d');
-                let myChart = new Chart(ctx, {
-                    type: 'pie',
-                    data: {
-                        labels: ['red', 'blue'],
-                        datasets: [{
-                            label: '# of votes',
-                            data: [1, 2],
-                            backgroundColor: [
-                                'red',
-                                'blue'
-                            ],
-                            borderColor: [
-                                'brown',
-                                'purple'
-                            ],
-                            borderWidth: 1
-                        }]
-                    },
-                    options: {
-
-                    }
-                });
-
-                el.style.maxHeight = el.scrollHeight + 'px';
+                let canvasId = button.id.replace('Stats', 'Chart');
+                renderChart(canvasId);
+                el.classList.remove("collapsed");
+                el.style.maxHeight = el.scrollHeight + "px";
             } else {
                 el.classList.add('collapsed');
                 el.style.maxHeight = 0;
             }
         });
     }
-
-    function createChart() {
-
-    }
 })();
 
 // Original function from https://eddyerburgh.me/animate-elements-scrolled-view-vanilla-js
-function reveal() {
+(function revealEvents() {
     let elements;
     let windowHeight;
 
@@ -110,7 +78,7 @@ function reveal() {
     }, 25);
 
     return initialise();
-}
+})();
 
 // Original function from https://davidwalsh.name/javascript-debounce-function
 function debounce(fn, wait, immediate) { // Limits the rate that a function is called for performance.
@@ -128,4 +96,30 @@ function debounce(fn, wait, immediate) { // Limits the rate that a function is c
     };
 }
 
-reveal();
+function renderChart(canvasId) {
+    var ctx = document.getElementById(canvasId).getContext("2d");
+    let myChart = new Chart(ctx, {
+      type: "line",
+      data: {
+        labels: ["1985", "1990", "1995", "2000", "2005", "2010"],
+        datasets: [
+          {
+            label: "Windows Sales (millions)",
+            data: [0.25, 2, 40, 70, 500, 1000],
+            backgroundColor: ["rgba(255, 99, 132, 0.2)"],
+            borderColor: ["rgba(255,99,132,1)"],
+            pointHoverBackgroundColor: "rgba(255,99,132,1)"
+          }
+        ]
+      },
+      options: {
+          legend: {
+              display: false
+          },
+          title: {
+              display: true,
+              text: 'Windows Sales (Millions)'
+          }
+      }
+    });
+}
