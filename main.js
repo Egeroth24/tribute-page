@@ -43,7 +43,7 @@
             let el = document.getElementsByClassName(button.id)[0];
             if (el.classList.contains('collapsed')) {
                 let canvasId = button.id.replace('Stats', 'Chart');
-                renderChart(canvasId);
+                renderChart(canvasId, );
                 el.classList.remove("collapsed");
                 el.style.maxHeight = el.scrollHeight + "px";
             } else {
@@ -98,27 +98,18 @@ function debounce(fn, wait, immediate) { // Limits the rate that a function is c
 
 function renderChart(canvasId) {
     var ctx = document.getElementById(canvasId).getContext("2d");
+    let year = canvasId.slice(0, 4);
+    let chartData = chartStats[year];
     let myChart = new Chart(ctx, {
       type: "line",
-      data: {
-        labels: ["1985", "1990", "1995", "2000", "2005", "2010"],
-        datasets: [
-          {
-            label: "Windows Sales (millions)",
-            data: [0.25, 2, 40, 70, 500, 1000],
-            backgroundColor: ["rgba(255, 99, 132, 0.2)"],
-            borderColor: ["rgba(255,99,132,1)"],
-            pointHoverBackgroundColor: "rgba(255,99,132,1)"
-          }
-        ]
-      },
+      data: chartData.data,
       options: {
           legend: {
               display: false
           },
           title: {
               display: true,
-              text: 'Windows Sales (Millions)'
+              text: chartData.text
           }
       }
     });
