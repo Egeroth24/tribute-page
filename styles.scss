@@ -1,4 +1,4 @@
-$primaryDark: #212121;
+$primaryDark: #010101;
 $primaryBlue: #3E50B4;
 
 * {
@@ -17,38 +17,80 @@ html {
     border-radius: 4px;
 }
 
-#indexBanner {
-    min-height: 75vh;
-    display: grid;
-    grid-template-columns: 1fr 2fr;
-    grid-template-areas: "portrait description";
+#banner {
+    height: 75vh;
     background-color: $primaryDark;
     color: white;
+    display: grid;
+    grid-template-columns: 1fr 1.5fr;
+    grid-template-areas: "portrait description";
+    @media only screen and (max-width: 780px) {
+        height: auto;
+        grid-template-columns: 1fr;
+        grid-template-rows: 1fr 1fr;
+        grid-template-areas:
+        "portrait"
+        "description";
+    }
 
     .portrait {
         grid-area: portrait;
-        align-self: center;
-        justify-self: end;
-        img {
-            max-width: 100%;
+        position: relative;
+        @media only screen and (max-width: 780px) {
+            
         }
-        
+        img {
+            position: absolute;
+            top: 0;
+            right: 0;
+            bottom: 0;
+            left: 0;
+            margin: auto;
+            max-width: 100%;
+            max-height: 100%;
+            @media only screen and (max-width: 780px) {
+                display: block;
+            }
+        }
     }
+
     .description {
         grid-area: description;
-
+        margin-left: 10px;
+        margin-right: 20px;
+        @media only screen and (max-width: 780px) {
+            text-align: center;
+            margin-bottom: 20px;
+        }
         h1 {
             font-size: 48px;
-            margin-bottom: 4px;
+            margin-bottom: 10px;
+            @media only screen and (max-width: 780px) {
+                margin-top: 10px;
+                font-size: 36px;
+            }
         }
         h2 {
             font-size: 28px;
             margin-top: 0;
             margin-bottom: 40px;
+            @media only screen and (max-width: 780px) {
+                margin-bottom: 5px;
+            }
         }
         p {
-            font-size: 18px;
+            font-size: 22px;
+            font-weight: 300;
             margin: 10px;
+            @media only screen and (max-width: 780px) {
+                font-size: 20px;
+                &:first-of-type {
+                    display: none;
+                }
+            }
+        }
+        h1, h2 {
+            font-family: "Roboto Slab";
         }
     }
 
@@ -56,15 +98,18 @@ html {
 
 #timelineContainer {
     background-color: $primaryDark;
+    background-image: linear-gradient($primaryDark, #004e92, $primaryDark);
     position: relative;
 
     .timeline {
         position: absolute;
         left: 50%;
         top: 90px;
+        margin-top: 10px;
         height: calc(100% - 90px); // 100% of parent container includes the yearBorn (90px high). 
         width: 8px;
         background-color: white;
+        border-radius: 5px 5px 5px 5px;
     }
 
     #yearBorn {
@@ -72,9 +117,12 @@ html {
         color: white;
         .year {
             font-size: 24px;
+            font-family: "Roboto Slab";
         }
         p {
             font-size: 18px;
+            font-family: "Roboto Slab";
+            font-weight: 400;
         }
         
     }
@@ -146,6 +194,9 @@ html {
             @media only screen and (max-width: 780px) {
                 margin-right: auto;
             }
+            .card {
+                transform: translateX(-10%);
+            }
         }
         &.eventRight {
             grid-area: eventRight;
@@ -153,6 +204,9 @@ html {
             margin-left: 68px; // 60 + the 8px of the timeline, to be symmetrical with eventLeft.
             @media only screen and (max-width: 780px) {
                 margin-left: auto;
+            }
+            .card {
+                transform: translateX(10%);
             }
         }
 
@@ -172,25 +226,22 @@ html {
             }
         }
 
-        &.eventRight .card {
-            transform: translateX(10%);
-        }
-        &.eventLeft .card {
-            transform: translateX(-10%);
-        }
-
         .cardYear {
             position: absolute;
             width: 75px;
             height: 75px;
+            top: -15px; // Half of card-title height, centers year with the cardTriangle.
             text-align: center;
+            font-size: 26px;
+            font-weight: 300;
+            color: white;
             border: 4px solid white;
             border-radius: 50%;
             background-color: $primaryDark;
-            color: white;
-            font-size: 26px;
 
-            top: -15px; // Half of card-title height, centers year with the cardTriangle.
+            p {
+                font-family: "Roboto Slab";
+            }
 
             &.yearRight {
                 right: -100px; // 42px from triangle width and 68px from eventContainer margin.
