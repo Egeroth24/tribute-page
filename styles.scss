@@ -8,23 +8,34 @@ $primaryBlue: #3E50B4;
 }
 
 html {
-    overflow-x: hidden;
+    background-color: $primaryDark;
+    overflow-x: hidden; // Prevents x-axis overflow from event cards being translated out of html div. Cards are translated for slide-in effect on small screens.
 }
 
-.placeholder {
-    background-color: rgba(126, 126, 126, 0.25);
-    border: 1px solid #e3e3e3;
-    border-radius: 4px;
+.hr {
+    display: block;
+    margin: auto;
+    border-top: 1px solid $primaryBlue;
+    width: 75%;
+    @media only screen and (max-width: 600px) {
+        width: 90%;
+    }
 }
 
 #banner {
     height: 75vh;
+    min-height: 500px;
     background-color: $primaryDark;
     color: white;
     display: grid;
-    grid-template-columns: 1fr 1.5fr;
+    grid-template-columns: 1fr 2fr;
     grid-template-areas: "portrait description";
+    padding: 25px 50px 25px 50px;
+    @media only screen and (max-width: 1024px) {
+        padding: 25px 25px 0 25px;
+    }
     @media only screen and (max-width: 780px) {
+        padding: 25px 0 0 25px;
         height: auto;
         grid-template-columns: 1fr;
         grid-template-rows: 1fr 1fr;
@@ -36,20 +47,20 @@ html {
     .portrait {
         grid-area: portrait;
         position: relative;
-        @media only screen and (max-width: 780px) {
-            
-        }
+        min-height: 300px;
         img {
             position: absolute;
             top: 0;
             right: 0;
             bottom: 0;
             left: 0;
-            margin: auto;
-            max-width: 100%;
-            max-height: 100%;
+            margin: auto 20px auto auto;
+            max-width: 90%;
+            max-height: 75%;
             @media only screen and (max-width: 780px) {
                 display: block;
+                margin: auto;
+                max-height: 100%;
             }
         }
     }
@@ -63,34 +74,15 @@ html {
             margin-bottom: 20px;
         }
         h1 {
+            font-family: "Roboto Slab";
             font-size: 48px;
-            margin-bottom: 10px;
-            @media only screen and (max-width: 780px) {
-                margin-top: 10px;
+            @media only screen and (max-width: 768px) {
                 font-size: 36px;
             }
         }
-        h2 {
-            font-size: 28px;
-            margin-top: 0;
-            margin-bottom: 40px;
-            @media only screen and (max-width: 780px) {
-                margin-bottom: 5px;
-            }
-        }
         p {
-            font-size: 22px;
-            font-weight: 300;
-            margin: 10px;
-            @media only screen and (max-width: 780px) {
-                font-size: 20px;
-                &:first-of-type {
-                    display: none;
-                }
-            }
-        }
-        h1, h2 {
             font-family: "Roboto Slab";
+            margin: 1em 0 1em 0;
         }
     }
 
@@ -106,7 +98,7 @@ html {
         left: 50%;
         top: 90px;
         margin-top: 10px;
-        height: calc(100% - 90px); // 100% of parent container includes the yearBorn (90px high). 
+        height: calc(100% - 150px);
         width: 8px;
         background-color: white;
         border-radius: 5px 5px 5px 5px;
@@ -116,13 +108,14 @@ html {
         text-align: center;
         color: white;
         .year {
-            font-size: 24px;
+            font-size: 26px;
             font-family: "Roboto Slab";
         }
         p {
             font-size: 18px;
             font-family: "Roboto Slab";
             font-weight: 400;
+            margin: 0;
         }
         
     }
@@ -179,12 +172,15 @@ html {
     }
 
     .eventContainer {
-        width: 75%;
+        width: 65%;
         margin: 25px;
         margin-top: 45px;
         position: relative;
         @media only screen and (max-width: 780px) {
             margin-top: 150px;
+        }
+        @media only screen and (max-width: 600px) {
+            width: 90%;
         }
 
         &.eventLeft {
@@ -215,7 +211,7 @@ html {
             opacity: 0;
             &.fade-in {
                 opacity: 1;
-                transition: opacity .75s ease;
+                transition: opacity .75s ease, box-shadow .25s ease;
                 animation: slide-in .75s forwards;
                 @keyframes slide-in {
                     100% { transform: (translateX(0%)) }
@@ -239,15 +235,11 @@ html {
             border-radius: 50%;
             background-color: $primaryDark;
 
-            p {
-                font-family: "Roboto Slab";
-            }
-
             &.yearRight {
-                right: -100px; // 42px from triangle width and 68px from eventContainer margin.
+                right: -101px; // 43px from triangle width and 68px from eventContainer margin.
             }
             &.yearLeft {
-                left: -100px;
+                left: -101px;
             }
 
             &.yearRight, &.yearLeft {
@@ -261,8 +253,10 @@ html {
             }
     
             p {
+                font-family: "Roboto Slab";
+                font-size: 26px;
                 line-height: 67px; // cardYear height minus 4px border.
-                margin-right: 2px; // Centers the year that always starts with "1" as the font is not monospace.
+                margin: 0 2px 0 0; // Centers the year that always starts with "1" as the font is not monospace.
             }
 
         }
@@ -272,6 +266,7 @@ html {
             .card-title {
                 position: relative;
                 background-color: $primaryBlue;
+                font-family: "Roboto Slab";
                 padding: 5px;
                 margin: 0;
                 text-align: center;
@@ -282,6 +277,7 @@ html {
                 p {
                     padding: 10px;
                     font-size: 16px;
+                    font-weight: 400;
                 }
             }
             .expandable {
@@ -313,6 +309,72 @@ html {
             
         }
 
+    }
+
+}
+
+#furtherReading {
+    background-color: $primaryDark;
+    color: white;
+    font-family: "Roboto Slab";
+    text-align: center;
+    width: 50%;
+    margin: 50px auto 50px auto;
+    @media only screen and (max-width: 1024px) {
+        width: 75%;
+    }
+    @media only screen and (max-width: 600px) {
+        width: 90%;
+    }
+    p {
+        font-family: "Roboto Slab";
+        margin-bottom: 10px;
+    }
+    .links {
+        a {
+            position: relative;
+            color: white;
+            font-family: "Roboto";
+            font-weight: 300;
+            
+            $duration: .2s;
+            $distance: 8px;
+            $easeOutBack: cubic-bezier(0.175, 0.885, 0.320, 1.275);
+    
+            &:before,
+            &:after {
+                content: '';
+                position: absolute;
+                bottom: 2px;
+                left: 0; right: 0;
+                height: 2px;
+                background-color: $primaryBlue;
+            }
+            &:before {
+                opacity: 0;
+                transform: translateY(- $distance);
+                transition: transform 0s $easeOutBack, opacity 0s;
+            }
+            &:after {
+                opacity: 0;
+                transform: translateY($distance/2);
+                transition: transform $duration $easeOutBack, opacity $duration;
+            }
+            &:hover,
+            &:focus {
+                &:before,
+                &:after {
+                    opacity: 1;
+                    transform: translateY(0);
+                }
+                &:before {
+                    transition: transform $duration $easeOutBack, opacity $duration;
+                }
+                &:after {
+                    transition: transform 0s $duration $easeOutBack, opacity 0s $duration;
+                }
+            }
+        }
     }
 
 }

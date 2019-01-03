@@ -8,28 +8,45 @@
 }
 
 html {
+  background-color: #010101;
   overflow-x: hidden;
 }
 
-.placeholder {
-  background-color: rgba(126, 126, 126, 0.25);
-  border: 1px solid #e3e3e3;
-  border-radius: 4px;
+.hr {
+  display: block;
+  margin: auto;
+  border-top: 1px solid #3E50B4;
+  width: 75%;
+}
+
+@media only screen and (max-width: 600px) {
+  .hr {
+    width: 90%;
+  }
 }
 
 #banner {
   height: 75vh;
+  min-height: 500px;
   background-color: #010101;
   color: white;
   display: -ms-grid;
   display: grid;
-  -ms-grid-columns: 1fr 1.5fr;
-      grid-template-columns: 1fr 1.5fr;
+  -ms-grid-columns: 1fr 2fr;
+      grid-template-columns: 1fr 2fr;
       grid-template-areas: "portrait description";
+  padding: 25px 50px 25px 50px;
+}
+
+@media only screen and (max-width: 1024px) {
+  #banner {
+    padding: 25px 25px 0 25px;
+  }
 }
 
 @media only screen and (max-width: 780px) {
   #banner {
+    padding: 25px 0 0 25px;
     height: auto;
     -ms-grid-columns: 1fr;
         grid-template-columns: 1fr;
@@ -44,6 +61,7 @@ html {
   -ms-grid-column: 1;
   grid-area: portrait;
   position: relative;
+  min-height: 300px;
 }
 
 #banner .portrait img {
@@ -52,14 +70,16 @@ html {
   right: 0;
   bottom: 0;
   left: 0;
-  margin: auto;
-  max-width: 100%;
-  max-height: 100%;
+  margin: auto 20px auto auto;
+  max-width: 90%;
+  max-height: 75%;
 }
 
 @media only screen and (max-width: 780px) {
   #banner .portrait img {
     display: block;
+    margin: auto;
+    max-height: 100%;
   }
 }
 
@@ -79,46 +99,19 @@ html {
 }
 
 #banner .description h1 {
+  font-family: "Roboto Slab";
   font-size: 48px;
-  margin-bottom: 10px;
 }
 
-@media only screen and (max-width: 780px) {
+@media only screen and (max-width: 768px) {
   #banner .description h1 {
-    margin-top: 10px;
     font-size: 36px;
   }
 }
 
-#banner .description h2 {
-  font-size: 28px;
-  margin-top: 0;
-  margin-bottom: 40px;
-}
-
-@media only screen and (max-width: 780px) {
-  #banner .description h2 {
-    margin-bottom: 5px;
-  }
-}
-
 #banner .description p {
-  font-size: 22px;
-  font-weight: 300;
-  margin: 10px;
-}
-
-@media only screen and (max-width: 780px) {
-  #banner .description p {
-    font-size: 20px;
-  }
-  #banner .description p:first-of-type {
-    display: none;
-  }
-}
-
-#banner .description h1, #banner .description h2 {
   font-family: "Roboto Slab";
+  margin: 1em 0 1em 0;
 }
 
 #timelineContainer {
@@ -133,7 +126,7 @@ html {
   left: 50%;
   top: 90px;
   margin-top: 10px;
-  height: calc(100% - 90px);
+  height: calc(100% - 150px);
   width: 8px;
   background-color: white;
   border-radius: 5px 5px 5px 5px;
@@ -145,7 +138,7 @@ html {
 }
 
 #timelineContainer #yearBorn .year {
-  font-size: 24px;
+  font-size: 26px;
   font-family: "Roboto Slab";
 }
 
@@ -153,6 +146,7 @@ html {
   font-size: 18px;
   font-family: "Roboto Slab";
   font-weight: 400;
+  margin: 0;
 }
 
 #timelineContainer .timelineRow {
@@ -219,7 +213,7 @@ html {
 }
 
 #timelineContainer .eventContainer {
-  width: 75%;
+  width: 65%;
   margin: 25px;
   margin-top: 45px;
   position: relative;
@@ -228,6 +222,12 @@ html {
 @media only screen and (max-width: 780px) {
   #timelineContainer .eventContainer {
     margin-top: 150px;
+  }
+}
+
+@media only screen and (max-width: 600px) {
+  #timelineContainer .eventContainer {
+    width: 90%;
   }
 }
 
@@ -276,8 +276,10 @@ html {
 
 #timelineContainer .eventContainer .card.fade-in {
   opacity: 1;
-  -webkit-transition: opacity .75s ease;
-  transition: opacity .75s ease;
+  -webkit-transition: opacity .75s ease, -webkit-box-shadow .25s ease;
+  transition: opacity .75s ease, -webkit-box-shadow .25s ease;
+  transition: opacity .75s ease, box-shadow .25s ease;
+  transition: opacity .75s ease, box-shadow .25s ease, -webkit-box-shadow .25s ease;
   -webkit-animation: slide-in .75s forwards;
           animation: slide-in .75s forwards;
 }
@@ -317,16 +319,12 @@ html {
   background-color: #010101;
 }
 
-#timelineContainer .eventContainer .cardYear p {
-  font-family: "Roboto Slab";
-}
-
 #timelineContainer .eventContainer .cardYear.yearRight {
-  right: -100px;
+  right: -101px;
 }
 
 #timelineContainer .eventContainer .cardYear.yearLeft {
-  left: -100px;
+  left: -101px;
 }
 
 @media only screen and (max-width: 780px) {
@@ -340,8 +338,10 @@ html {
 }
 
 #timelineContainer .eventContainer .cardYear p {
+  font-family: "Roboto Slab";
+  font-size: 26px;
   line-height: 67px;
-  margin-right: 2px;
+  margin: 0 2px 0 0;
 }
 
 #timelineContainer .eventContainer .card-content {
@@ -351,6 +351,7 @@ html {
 #timelineContainer .eventContainer .card-content .card-title {
   position: relative;
   background-color: #3E50B4;
+  font-family: "Roboto Slab";
   padding: 5px;
   margin: 0;
   text-align: center;
@@ -364,6 +365,7 @@ html {
 #timelineContainer .eventContainer .card-content .cardText p {
   padding: 10px;
   font-size: 16px;
+  font-weight: 400;
 }
 
 #timelineContainer .eventContainer .card-content .expandable {
@@ -397,5 +399,88 @@ html {
 #timelineContainer .eventContainer .card-content .expandStatsButton {
   margin: 0 auto 10px 10px;
   background-color: #3E50B4;
+}
+
+#furtherReading {
+  background-color: #010101;
+  color: white;
+  font-family: "Roboto Slab";
+  text-align: center;
+  width: 50%;
+  margin: 50px auto 50px auto;
+}
+
+@media only screen and (max-width: 1024px) {
+  #furtherReading {
+    width: 75%;
+  }
+}
+
+@media only screen and (max-width: 600px) {
+  #furtherReading {
+    width: 90%;
+  }
+}
+
+#furtherReading p {
+  font-family: "Roboto Slab";
+  margin-bottom: 10px;
+}
+
+#furtherReading .links a {
+  position: relative;
+  color: white;
+  font-family: "Roboto";
+  font-weight: 300;
+}
+
+#furtherReading .links a:before, #furtherReading .links a:after {
+  content: '';
+  position: absolute;
+  bottom: 2px;
+  left: 0;
+  right: 0;
+  height: 2px;
+  background-color: #3E50B4;
+}
+
+#furtherReading .links a:before {
+  opacity: 0;
+  -webkit-transform: translateY(-8px);
+          transform: translateY(-8px);
+  -webkit-transition: opacity 0s, -webkit-transform 0s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  transition: opacity 0s, -webkit-transform 0s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  transition: transform 0s cubic-bezier(0.175, 0.885, 0.32, 1.275), opacity 0s;
+  transition: transform 0s cubic-bezier(0.175, 0.885, 0.32, 1.275), opacity 0s, -webkit-transform 0s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+#furtherReading .links a:after {
+  opacity: 0;
+  -webkit-transform: translateY(4px);
+          transform: translateY(4px);
+  -webkit-transition: opacity 0.2s, -webkit-transform 0.2s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  transition: opacity 0.2s, -webkit-transform 0.2s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  transition: transform 0.2s cubic-bezier(0.175, 0.885, 0.32, 1.275), opacity 0.2s;
+  transition: transform 0.2s cubic-bezier(0.175, 0.885, 0.32, 1.275), opacity 0.2s, -webkit-transform 0.2s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+#furtherReading .links a:hover:before, #furtherReading .links a:hover:after, #furtherReading .links a:focus:before, #furtherReading .links a:focus:after {
+  opacity: 1;
+  -webkit-transform: translateY(0);
+          transform: translateY(0);
+}
+
+#furtherReading .links a:hover:before, #furtherReading .links a:focus:before {
+  -webkit-transition: opacity 0.2s, -webkit-transform 0.2s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  transition: opacity 0.2s, -webkit-transform 0.2s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  transition: transform 0.2s cubic-bezier(0.175, 0.885, 0.32, 1.275), opacity 0.2s;
+  transition: transform 0.2s cubic-bezier(0.175, 0.885, 0.32, 1.275), opacity 0.2s, -webkit-transform 0.2s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+#furtherReading .links a:hover:after, #furtherReading .links a:focus:after {
+  -webkit-transition: opacity 0s 0.2s, -webkit-transform 0s 0.2s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  transition: opacity 0s 0.2s, -webkit-transform 0s 0.2s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  transition: transform 0s 0.2s cubic-bezier(0.175, 0.885, 0.32, 1.275), opacity 0s 0.2s;
+  transition: transform 0s 0.2s cubic-bezier(0.175, 0.885, 0.32, 1.275), opacity 0s 0.2s, -webkit-transform 0s 0.2s cubic-bezier(0.175, 0.885, 0.32, 1.275);
 }
 /*# sourceMappingURL=styles.css.map */
