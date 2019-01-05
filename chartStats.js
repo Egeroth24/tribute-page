@@ -113,4 +113,3 @@ let chartStats = {
         "text": "Est. Global Flu-related Deaths"
     }
 }
-

@@ -4,7 +4,7 @@ $primaryBlue: #3E50B4;
 * {
     padding: 0; margin: 0; border: 0;
     box-sizing: border-box;
-    font-family: "roboto";
+    font-family: "Roboto", sans-serif;
 }
 
 html {
@@ -23,7 +23,6 @@ html {
 }
 
 #banner {
-    height: 75vh;
     min-height: 500px;
     background-color: $primaryDark;
     color: white;
@@ -44,17 +43,25 @@ html {
         "description";
     }
 
+    #particles-js {
+        position: absolute;
+        height: 100%;
+        width: 100%;
+        top: 0; left: 0;
+    }
+
     .portrait {
         grid-area: portrait;
         position: relative;
         min-height: 300px;
+        pointer-events: none; // Allows ParticlesJS mouse onhover interactivity to work through image.
         img {
             position: absolute;
             top: 0;
             right: 0;
             bottom: 0;
             left: 0;
-            margin: auto 20px auto auto;
+            margin: auto;
             max-width: 90%;
             max-height: 75%;
             @media only screen and (max-width: 780px) {
@@ -74,14 +81,14 @@ html {
             margin-bottom: 20px;
         }
         h1 {
-            font-family: "Roboto Slab";
+            font-family: "Roboto Slab", serif;
             font-size: 48px;
             @media only screen and (max-width: 768px) {
                 font-size: 36px;
             }
         }
         p {
-            font-family: "Roboto Slab";
+            font-family: "Roboto Slab", serif;
             margin: 1em 0 1em 0;
         }
     }
@@ -109,11 +116,11 @@ html {
         color: white;
         .year {
             font-size: 26px;
-            font-family: "Roboto Slab";
+            font-family: "Roboto Slab", serif;
         }
         p {
             font-size: 18px;
-            font-family: "Roboto Slab";
+            font-family: "Roboto Slab", serif;
             font-weight: 400;
             margin: 0;
         }
@@ -253,7 +260,7 @@ html {
             }
     
             p {
-                font-family: "Roboto Slab";
+                font-family: "Roboto Slab", serif;
                 font-size: 26px;
                 line-height: 67px; // cardYear height minus 4px border.
                 margin: 0 2px 0 0; // Centers the year that always starts with "1" as the font is not monospace.
@@ -266,7 +273,7 @@ html {
             .card-title {
                 position: relative;
                 background-color: $primaryBlue;
-                font-family: "Roboto Slab";
+                font-family: "Roboto Slab", serif;
                 padding: 5px;
                 margin: 0;
                 text-align: center;
@@ -316,7 +323,7 @@ html {
 #furtherReading {
     background-color: $primaryDark;
     color: white;
-    font-family: "Roboto Slab";
+    font-family: "Roboto Slab", serif;
     text-align: center;
     width: 50%;
     margin: 50px auto 50px auto;
@@ -327,53 +334,57 @@ html {
         width: 90%;
     }
     p {
-        font-family: "Roboto Slab";
+        font-family: "Roboto Slab", serif;
         margin-bottom: 10px;
     }
-    .links {
-        a {
-            position: relative;
-            color: white;
-            font-family: "Roboto";
-            font-weight: 300;
-            
-            $duration: .2s;
-            $distance: 8px;
-            $easeOutBack: cubic-bezier(0.175, 0.885, 0.320, 1.275);
-    
+    a {
+        position: relative;
+        color: white;
+        font-family: "Roboto";
+        font-weight: 300;
+        
+        $duration: .2s;
+        $distance: 8px;
+        $easeOutBack: cubic-bezier(0.175, 0.885, 0.320, 1.275);
+
+        &:before,
+        &:after {
+            content: '';
+            position: absolute;
+            bottom: 2px;
+            left: 0; right: 0;
+            height: 2px;
+            background-color: $primaryBlue;
+        }
+        &:before {
+            opacity: 0;
+            transform: translateY(- $distance);
+            transition: transform 0s $easeOutBack, opacity 0s;
+        }
+        &:after {
+            opacity: 0;
+            transform: translateY($distance/2);
+            transition: transform $duration $easeOutBack, opacity $duration;
+        }
+        &:hover,
+        &:focus {
             &:before,
             &:after {
-                content: '';
-                position: absolute;
-                bottom: 2px;
-                left: 0; right: 0;
-                height: 2px;
-                background-color: $primaryBlue;
+                opacity: 1;
+                transform: translateY(0);
             }
             &:before {
-                opacity: 0;
-                transform: translateY(- $distance);
-                transition: transform 0s $easeOutBack, opacity 0s;
-            }
-            &:after {
-                opacity: 0;
-                transform: translateY($distance/2);
                 transition: transform $duration $easeOutBack, opacity $duration;
             }
-            &:hover,
-            &:focus {
-                &:before,
-                &:after {
-                    opacity: 1;
-                    transform: translateY(0);
-                }
-                &:before {
-                    transition: transform $duration $easeOutBack, opacity $duration;
-                }
-                &:after {
-                    transition: transform 0s $duration $easeOutBack, opacity 0s $duration;
-                }
+            &:after {
+                transition: transform 0s $duration $easeOutBack, opacity 0s $duration;
             }
+        }
+    }
+
+    #footer {
+        span {
+            font-family: "Roboto Slab", serif;
         }
     }
 

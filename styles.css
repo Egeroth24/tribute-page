@@ -4,7 +4,7 @@
   border: 0;
   -webkit-box-sizing: border-box;
           box-sizing: border-box;
-  font-family: "roboto";
+  font-family: "Roboto", sans-serif;
 }
 
 html {
@@ -26,7 +26,6 @@ html {
 }
 
 #banner {
-  height: 75vh;
   min-height: 500px;
   background-color: #010101;
   color: white;
@@ -56,12 +55,21 @@ html {
   }
 }
 
+#banner #particles-js {
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  top: 0;
+  left: 0;
+}
+
 #banner .portrait {
   -ms-grid-row: 1;
   -ms-grid-column: 1;
   grid-area: portrait;
   position: relative;
   min-height: 300px;
+  pointer-events: none;
 }
 
 #banner .portrait img {
@@ -70,7 +78,7 @@ html {
   right: 0;
   bottom: 0;
   left: 0;
-  margin: auto 20px auto auto;
+  margin: auto;
   max-width: 90%;
   max-height: 75%;
 }
@@ -99,7 +107,7 @@ html {
 }
 
 #banner .description h1 {
-  font-family: "Roboto Slab";
+  font-family: "Roboto Slab", serif;
   font-size: 48px;
 }
 
@@ -110,7 +118,7 @@ html {
 }
 
 #banner .description p {
-  font-family: "Roboto Slab";
+  font-family: "Roboto Slab", serif;
   margin: 1em 0 1em 0;
 }
 
@@ -139,12 +147,12 @@ html {
 
 #timelineContainer #yearBorn .year {
   font-size: 26px;
-  font-family: "Roboto Slab";
+  font-family: "Roboto Slab", serif;
 }
 
 #timelineContainer #yearBorn p {
   font-size: 18px;
-  font-family: "Roboto Slab";
+  font-family: "Roboto Slab", serif;
   font-weight: 400;
   margin: 0;
 }
@@ -338,7 +346,7 @@ html {
 }
 
 #timelineContainer .eventContainer .cardYear p {
-  font-family: "Roboto Slab";
+  font-family: "Roboto Slab", serif;
   font-size: 26px;
   line-height: 67px;
   margin: 0 2px 0 0;
@@ -351,7 +359,7 @@ html {
 #timelineContainer .eventContainer .card-content .card-title {
   position: relative;
   background-color: #3E50B4;
-  font-family: "Roboto Slab";
+  font-family: "Roboto Slab", serif;
   padding: 5px;
   margin: 0;
   text-align: center;
@@ -404,7 +412,7 @@ html {
 #furtherReading {
   background-color: #010101;
   color: white;
-  font-family: "Roboto Slab";
+  font-family: "Roboto Slab", serif;
   text-align: center;
   width: 50%;
   margin: 50px auto 50px auto;
@@ -423,18 +431,18 @@ html {
 }
 
 #furtherReading p {
-  font-family: "Roboto Slab";
+  font-family: "Roboto Slab", serif;
   margin-bottom: 10px;
 }
 
-#furtherReading .links a {
+#furtherReading a {
   position: relative;
   color: white;
   font-family: "Roboto";
   font-weight: 300;
 }
 
-#furtherReading .links a:before, #furtherReading .links a:after {
+#furtherReading a:before, #furtherReading a:after {
   content: '';
   position: absolute;
   bottom: 2px;
@@ -444,7 +452,7 @@ html {
   background-color: #3E50B4;
 }
 
-#furtherReading .links a:before {
+#furtherReading a:before {
   opacity: 0;
   -webkit-transform: translateY(-8px);
           transform: translateY(-8px);
@@ -454,7 +462,7 @@ html {
   transition: transform 0s cubic-bezier(0.175, 0.885, 0.32, 1.275), opacity 0s, -webkit-transform 0s cubic-bezier(0.175, 0.885, 0.32, 1.275);
 }
 
-#furtherReading .links a:after {
+#furtherReading a:after {
   opacity: 0;
   -webkit-transform: translateY(4px);
           transform: translateY(4px);
@@ -464,23 +472,27 @@ html {
   transition: transform 0.2s cubic-bezier(0.175, 0.885, 0.32, 1.275), opacity 0.2s, -webkit-transform 0.2s cubic-bezier(0.175, 0.885, 0.32, 1.275);
 }
 
-#furtherReading .links a:hover:before, #furtherReading .links a:hover:after, #furtherReading .links a:focus:before, #furtherReading .links a:focus:after {
+#furtherReading a:hover:before, #furtherReading a:hover:after, #furtherReading a:focus:before, #furtherReading a:focus:after {
   opacity: 1;
   -webkit-transform: translateY(0);
           transform: translateY(0);
 }
 
-#furtherReading .links a:hover:before, #furtherReading .links a:focus:before {
+#furtherReading a:hover:before, #furtherReading a:focus:before {
   -webkit-transition: opacity 0.2s, -webkit-transform 0.2s cubic-bezier(0.175, 0.885, 0.32, 1.275);
   transition: opacity 0.2s, -webkit-transform 0.2s cubic-bezier(0.175, 0.885, 0.32, 1.275);
   transition: transform 0.2s cubic-bezier(0.175, 0.885, 0.32, 1.275), opacity 0.2s;
   transition: transform 0.2s cubic-bezier(0.175, 0.885, 0.32, 1.275), opacity 0.2s, -webkit-transform 0.2s cubic-bezier(0.175, 0.885, 0.32, 1.275);
 }
 
-#furtherReading .links a:hover:after, #furtherReading .links a:focus:after {
+#furtherReading a:hover:after, #furtherReading a:focus:after {
   -webkit-transition: opacity 0s 0.2s, -webkit-transform 0s 0.2s cubic-bezier(0.175, 0.885, 0.32, 1.275);
   transition: opacity 0s 0.2s, -webkit-transform 0s 0.2s cubic-bezier(0.175, 0.885, 0.32, 1.275);
   transition: transform 0s 0.2s cubic-bezier(0.175, 0.885, 0.32, 1.275), opacity 0s 0.2s;
   transition: transform 0s 0.2s cubic-bezier(0.175, 0.885, 0.32, 1.275), opacity 0s 0.2s, -webkit-transform 0s 0.2s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+#furtherReading #footer span {
+  font-family: "Roboto Slab", serif;
 }
 /*# sourceMappingURL=styles.css.map */
